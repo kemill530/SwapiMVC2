@@ -7,6 +7,8 @@ namespace SwapiMVC2.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private static Random rand = new Random();
+
 
     public HomeController(ILogger<HomeController> logger)
     {
@@ -15,7 +17,9 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        string[] names = new[] {"Ben", "Eleanor", "Evelyn"};
+        string name = names[rand.Next(0, names.Length)];
+        return View(model: name);
     }
 
     public IActionResult Privacy()
