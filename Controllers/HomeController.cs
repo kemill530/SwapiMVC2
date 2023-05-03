@@ -20,6 +20,7 @@ public class HomeController : Controller
         string[] names = new[] {"Ben", "Eleanor", "Evelyn"};
         string name = names[rand.Next(0, names.Length)];
         return View(model: name);
+        // model:name bc View() looks for name of view as a string. We want it to be a model so we are specifying which parameter were fulfilling
     }
 
     public IActionResult Privacy()
